@@ -14,13 +14,18 @@ public class Atendimento {
     public void setDescricao (String descricao) {
         this.descricao = descricao;
     }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
     @Override
     public String toString() {
-        DateTimeFormatter formatoBr = DateTimeFormatter. ofPattern("dd/MM/yyyy");
-        String data = formatoBr.format(this.data); String retorno = "Data: "+data;
-        retorno += "\nInformações: "+descricao;
+        DateTimeFormatter formatoBr = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String data = formatoBr.format(this.data);
+        String retorno = "Informações: " + descricao;
+        retorno+= ", Data: "+data;
         return retorno;
     }
 
 }
-

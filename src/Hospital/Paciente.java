@@ -10,17 +10,37 @@ public class Paciente {
     private String sobrenome;
     private LocalDate dataNascimento;
     private ArrayList<Atendimento> atendimentos;
+    private boolean ativo;
 
-    public Paciente(){
-        atendimentos = new ArrayList<Atendimento>();
+    public Paciente(String nome, String sobrenome){
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.atendimentos = new ArrayList<Atendimento>();
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
     public String getNome() {
-        return nome;
+        String nomeCompleto = nome +" "+sobrenome;
+        return nomeCompleto;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSobrenome(){;
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome){
+        this.sobrenome = sobrenome;
     }
 
     public LocalDate getDataNascimento() {
@@ -49,8 +69,10 @@ public class Paciente {
 
     @Override
     public String toString(){
-        String retorno = "Nome: "+nome+" "+sobrenome; DateTimeFormatter formatoBr = DateTimeFormatter. ofPattern("dd/MM/yyyy");
-        String data = formatoBr.format(this.dataNascimento); retorno += "Data de nascimento: "+data; retorno += "Idade: "+getIdade();
+        String retorno = "Nome: "+nome+" "+sobrenome+";\n";
+        DateTimeFormatter formatoBr = DateTimeFormatter. ofPattern("dd/MM/yyyy");
+        String data = formatoBr.format(this.dataNascimento);
+        retorno += "Data de nascimento: "+data; retorno += ";\n Idade: "+getIdade();
         return retorno;
     }
 }
