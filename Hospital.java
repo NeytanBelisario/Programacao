@@ -134,9 +134,9 @@ public class Hospital {
                     ler.nextLine();
                     System.out.print("Digite o nome completo do paciente que deseja apagar: ");
                     String nomeCompleto = ler.nextLine();
-                    for (Paciente paciente : pacientes) {
-                        if (nomeCompleto.equals(paciente.getNome())){
-                            pacientes.remove(paciente);
+                    for (int i=0; i<pacientes.size(); i++) {
+                        if (nomeCompleto.equals(pacientes.get(i).getNome())){
+                            pacientes.remove(pacientes.get(i));
                         }
                     }
                 }
